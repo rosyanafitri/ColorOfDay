@@ -1,165 +1,253 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ColorOfDay</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #183b56;
+            background-color: #f4fbff;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            color: #219ebc;
+            margin: 0;
+        }
+
+        nav a {
+            margin-left: 20px;
+            color: #183b56;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #219ebc;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #bdefff;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: #155b75;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .hero button {
+            margin-top: 25px;
+            padding: 13px 25px;
+            border: none;
+            border-radius: 25px;
+            background-color: #ffcf56;
+            color: #183b56;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .fitur {
+            padding: 55px 8%;
+            text-align: center;
+        }
+
+        .fitur h2 {
+            color: #219ebc;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            width: 250px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #d9edf5;
+        }
+
+        .card h3 {
+            color: #219ebc;
+        }
+
+        .cerita {
+            padding: 55px 20px;
+            text-align: center;
+            background-color: #e4f7ff;
+        }
+
+        .cerita h2 {
+            color: #155b75;
+        }
+
+        textarea {
+            width: 80%;
+            max-width: 600px;
+            padding: 15px;
+            border: 2px solid #9ddcec;
+            border-radius: 12px;
+            resize: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .cerita button {
+            margin-top: 15px;
+            padding: 13px 25px;
+            border: none;
+            border-radius: 25px;
+            background-color: #219ebc;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #155b75;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
 
     <header>
-        <h1>🎨 ColorOfDay</h1>
-        <p>Your Mood. Your Story. Your Style.</p>
+        <h2>ColorOfDay</h2>
 
         <nav>
-            <a href="#home">Home</a> |
-            <a href="#fitur">Fitur</a> |
-            <a href="#cerita">Ceritakan Harimu</a>
+            <a href="#">Home</a>
+            <a href="#fitur">Features</a>
+            <a href="#cerita">Try Now</a>
         </nav>
     </header>
 
-    <hr>
 
-    <main>
+    <section class="hero">
 
-        <section id="home">
-            <h2>Temukan Style yang Sesuai dengan Harimu</h2>
+        <h1>Your Mood. Your Color. Your Day. ✨</h1>
 
-            <p>
-                ColorOfDay membantu kamu menemukan warna, outfit,
-                dan aksesori yang sesuai dengan kondisi, aktivitas,
-                dan cerita hari yang akan kamu jalani.
-            </p>
-        </section>
+        <p>
+            Ceritakan harimu dan temukan warna serta
+            style yang membuatmu lebih siap menjalani hari.
+        </p>
 
-        <hr>
+        <button onclick="location.href='#cerita'">
+            Ceritakan Harimu
+        </button>
 
-        <section id="fitur">
-            <h2>Fitur ColorOfDay</h2>
+    </section>
 
-            <h3>🧠 Daily Context Analysis</h3>
-            <p>
-                Ceritakan bagaimana hari kamu akan dijalani.
-                Sistem menganalisis aktivitas, situasi,
-                dan kondisi yang kamu ceritakan.
-            </p>
 
-            <h3>🎨 Color Recommendation</h3>
-            <p>
-                Sistem menentukan warna dan kombinasi warna
-                yang sesuai dengan situasi dan kesan
-                yang ingin kamu tampilkan.
-            </p>
+    <section class="fitur" id="fitur">
 
-            <h3>👕 Smart Outfit Recommendation</h3>
-            <p>
-                Mendapatkan rekomendasi outfit lengkap,
-                mulai dari atasan, bawahan, sepatu,
-                hingga aksesori.
-            </p>
+        <h2>✨ What Can ColorOfDay Do?</h2>
 
-            <h3>🔄 Style Re-match</h3>
-            <p>
-                Tidak cocok dengan rekomendasi?
-                Kamu dapat melewati rekomendasi dan
-                mendapatkan pilihan style lainnya.
-            </p>
+        <div class="cards">
 
-            <h3>💬 Style Explanation</h3>
-            <p>
-                Setiap rekomendasi memiliki penjelasan singkat
-                mengenai alasan pemilihan warna dan outfit
-                serta kesan yang ingin dibangun.
-            </p>
+            <div class="card">
+                <h3>Understand Your Day</h3>
+                <p>
+                    Memahami aktivitas dan situasi
+                    yang akan kamu jalani.
+                </p>
+            </div>
 
-            <h3>📖 Daily Story</h3>
-            <p>
-                Simpan cerita dan pilihan warna harian
-                atau bagikan kepada pengguna lain.
-            </p>
-        </section>
+            <div class="card">
+                <h3>Find Your Color</h3>
+                <p>
+                    Menemukan warna yang sesuai
+                    dengan suasana harimu.
+                </p>
+            </div>
 
-        <hr>
+            <div class="card">
+                <h3>Build Your Style</h3>
+                <p>
+                    Mendapatkan rekomendasi outfit
+                    dan aksesori yang cocok.
+                </p>
+            </div>
 
-        <section id="cerita">
-            <h2>Ceritakan Harimu</h2>
+            <div class="card">
+                <h3>Try Another Look</h3>
+                <p>
+                    Coba style lainnya jika
+                    pilihan pertama belum cocok.
+                </p>
+            </div>
 
-            <p>
-                Ceritakan aktivitas, situasi, dan kondisi
-                yang akan kamu jalani hari ini.
-            </p>
+            <div class="card">
+                <h3>Know Your Impression</h3>
+                <p>
+                    Mengetahui kesan yang ingin
+                    ditampilkan melalui style.
+                </p>
+            </div>
 
-            <form>
-                <label for="story">Cerita kamu:</label>
-                <br><br>
+            <div class="card">
+                <h3>Save Your Story</h3>
+                <p>
+                    Menyimpan cerita dan style
+                    pilihanmu.
+                </p>
+            </div>
 
-                <textarea id="story" name="story" rows="8" cols="60"
-                    placeholder="Contoh: Besok aku ada presentasi di depan dosen. Aku cukup gugup, tetapi setelah itu ingin pergi bersama teman. Aku ingin terlihat rapi tetapi tetap nyaman."></textarea>
+        </div>
 
-                <br><br>
+    </section>
 
-                <button type="button">
-                    Dapatkan Rekomendasi
-                </button>
-            </form>
-        </section>
 
-        <hr>
+    <section class="cerita" id="cerita">
 
-        <section>
-            <h2>Contoh Hasil Rekomendasi</h2>
+        <h2>💙 Ready to Color Your Day?</h2>
 
-            <h3>🎨 Calm Confidence</h3>
+        <p>
+            Ceritakan apa yang akan kamu jalani hari ini.
+        </p>
 
-            <p>
-                Berdasarkan cerita kamu, sistem merekomendasikan
-                style yang memberikan kesan tenang, rapi,
-                dan percaya diri.
-            </p>
+        <textarea
+            rows="6"
+            placeholder="Contoh: Hari ini aku ada presentasi dan ingin terlihat rapi tetapi tetap santai...">
+        </textarea>
 
-            <h3>Palet Warna</h3>
-            <p>🔵 Navy | ⚪ Putih | 🩶 Abu-abu</p>
+        <br>
 
-            <h3>👕 Outfit</h3>
-            <ul>
-                <li>Kemeja putih</li>
-                <li>Outer navy</li>
-                <li>Celana abu-abu</li>
-                <li>Sneakers putih</li>
-            </ul>
+        <button>
+            Dapatkan Rekomendasi
+        </button>
 
-            <h3>⌚ Aksesori</h3>
-            <ul>
-                <li>Jam tangan minimalis</li>
-                <li>Tas berwarna gelap</li>
-            </ul>
+    </section>
 
-            <h3>💬 Today's Note</h3>
-
-            <blockquote>
-                Kamu punya agenda yang cukup padat hari ini.
-                Pilihan ini dibuat agar kamu tetap terlihat
-                rapi dan percaya diri sekaligus nyaman
-                menjalani aktivitasmu.
-            </blockquote>
-
-            <button type="button">
-                🔄 Coba Style Lain
-            </button>
-        </section>
-
-    </main>
-
-    <hr>
 
     <footer>
-        <p>
-            ColorOfDay — Your Mood. Your Story. Your Style.
-        </p>
+        <p>ColorOfDay — Your Mood. Your Color. Your Day.</p>
     </footer>
 
 </body>
 </html>
-```
