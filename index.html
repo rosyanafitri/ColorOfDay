@@ -1,253 +1,223 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ColorOfDay</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            color: #183b56;
-            background-color: #f4fbff;
-        }
-
-        header {
-            background-color: #ffffff;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h2 {
-            color: #219ebc;
-            margin: 0;
-        }
-
-        nav a {
-            margin-left: 20px;
-            color: #183b56;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            color: #219ebc;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background-color: #bdefff;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            color: #155b75;
-        }
-
-        .hero p {
-            font-size: 18px;
-            max-width: 600px;
-            margin: auto;
-            line-height: 1.6;
-        }
-
-        .hero button {
-            margin-top: 25px;
-            padding: 13px 25px;
-            border: none;
-            border-radius: 25px;
-            background-color: #ffcf56;
-            color: #183b56;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .fitur {
-            padding: 55px 8%;
-            text-align: center;
-        }
-
-        .fitur h2 {
-            color: #219ebc;
-        }
-
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .card {
-            background-color: #ffffff;
-            width: 250px;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px #d9edf5;
-        }
-
-        .card h3 {
-            color: #219ebc;
-        }
-
-        .cerita {
-            padding: 55px 20px;
-            text-align: center;
-            background-color: #e4f7ff;
-        }
-
-        .cerita h2 {
-            color: #155b75;
-        }
-
-        textarea {
-            width: 80%;
-            max-width: 600px;
-            padding: 15px;
-            border: 2px solid #9ddcec;
-            border-radius: 12px;
-            resize: none;
-            font-family: Arial, sans-serif;
-        }
-
-        .cerita button {
-            margin-top: 15px;
-            padding: 13px 25px;
-            border: none;
-            border-radius: 25px;
-            background-color: #219ebc;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #155b75;
-            color: white;
-        }
-    </style>
+    <link href="./dist/output.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-[#111827] text-slate-100 min-h-screen font-sans">
 
-    <header>
-        <h2>ColorOfDay</h2>
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 bg-[#111827]/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-cyan-400">
+                Color<span class="text-white">OfDay</span>
+            </a>
 
-        <nav>
-            <a href="#">Home</a>
-            <a href="#fitur">Features</a>
-            <a href="#cerita">Try Now</a>
-        </nav>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#home" class="font-medium hover:text-cyan-400 transition">Home</a>
+                <a href="#fitur" class="font-medium hover:text-cyan-400 transition">Features</a>
+                <a href="#cerita" class="font-medium hover:text-cyan-400 transition">Try Now</a>
+            </nav>
+
+            <button onclick="toggleDarkMode()" class="rounded-full bg-slate-800 px-4 py-2 hover:bg-slate-700 transition">
+                🌙
+            </button>
+        </div>
     </header>
 
-
-    <section class="hero">
-
-        <h1>Your Mood. Your Color. Your Day. ✨</h1>
-
-        <p>
-            Ceritakan harimu dan temukan warna serta
-            style yang membuatmu lebih siap menjalani hari.
-        </p>
-
-        <button onclick="location.href='#cerita'">
-            Ceritakan Harimu
-        </button>
-
-    </section>
-
-
-    <section class="fitur" id="fitur">
-
-        <h2>✨ What Can ColorOfDay Do?</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Understand Your Day</h3>
-                <p>
-                    Memahami aktivitas dan situasi
-                    yang akan kamu jalani.
-                </p>
+    <!-- HERO SECTION -->
+    <section id="home" class="relative overflow-hidden py-20 bg-[#111827]">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="inline-block mb-6 px-4 py-2 rounded-full bg-slate-800 text-cyan-400 text-sm font-semibold border border-slate-700">
+                ✨ Discover Your Daily Style
             </div>
-
-            <div class="card">
-                <h3>Find Your Color</h3>
-                <p>
-                    Menemukan warna yang sesuai
-                    dengan suasana harimu.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Build Your Style</h3>
-                <p>
-                    Mendapatkan rekomendasi outfit
-                    dan aksesori yang cocok.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Try Another Look</h3>
-                <p>
-                    Coba style lainnya jika
-                    pilihan pertama belum cocok.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Know Your Impression</h3>
-                <p>
-                    Mengetahui kesan yang ingin
-                    ditampilkan melalui style.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Save Your Story</h3>
-                <p>
-                    Menyimpan cerita dan style
-                    pilihanmu.
-                </p>
-            </div>
-
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
+                Your Mood. <span class="text-cyan-400">Your Color.</span> Your Day.
+            </h1>
+            <p class="max-w-2xl mx-auto mt-6 text-lg text-slate-400">
+                Ceritakan harimu dan temukan kombinasi warna, atasan, bawahan, serta aksesoris yang sempurna!
+            </p>
+            <a href="#cerita" class="inline-block mt-8 px-7 py-3 rounded-full bg-cyan-500 text-white font-bold shadow-lg shadow-cyan-500/20 hover:bg-cyan-600 transition">
+                Ceritakan Harimu →
+            </a>
         </div>
-
     </section>
 
+    <!-- FEATURES SECTION (6 FITUR LENGKAP UTUH) -->
+    <section id="fitur" class="py-16 bg-[#0B0F17]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-white">Mengapa Memakai ColorOfDay?</h2>
+                <p class="text-slate-400 mt-2">Solusi cerdas memilih perpaduan warna dan outfit harianmu tanpa bikin ribet.</p>
+            </div>
 
-    <section class="cerita" id="cerita">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Fitur 1 -->
+                <div class="p-8 rounded-2xl bg-[#131C2E] border border-slate-800 hover:border-cyan-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl mb-6">
+                        🎨
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Harmoni Warna Terkurasi</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Database warna menerapkan prinsip <i>1 Statement Color + Neutral Base</i> untuk memastikan kombinasi baju dan celanamu estetik & seimbang.
+                    </p>
+                </div>
 
-        <h2>💙 Ready to Color Your Day?</h2>
+                <!-- Fitur 2 -->
+                <div class="p-8 rounded-2xl bg-[#131C2E] border border-slate-800 hover:border-cyan-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl mb-6">
+                        💭
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Konteks Mood & Aktivitas</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Sistem mendeteksi aktivitas, cuaca, dan suasana hatimu (kerja, santai, hujan, galau) untuk memberikan tema yang paling pas.
+                    </p>
+                </div>
 
-        <p>
-            Ceritakan apa yang akan kamu jalani hari ini.
-        </p>
+                <!-- Fitur 3 -->
+                <div class="p-8 rounded-2xl bg-[#131C2E] border border-slate-800 hover:border-cyan-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl mb-6">
+                        👔
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Rekomendasi Outfit Lengkap</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Tidak hanya warna, kamu mendapatkan ide atasan, bawahan, hingga aksesoris pendukung yang serasi secara instan.
+                    </p>
+                </div>
 
-        <textarea
-            rows="6"
-            placeholder="Contoh: Hari ini aku ada presentasi dan ingin terlihat rapi tetapi tetap santai...">
-        </textarea>
+                <!-- Fitur 4 -->
+                <div class="p-8 rounded-2xl bg-[#131C2E] border border-slate-800 hover:border-cyan-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl mb-6">
+                        💡
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Penjelasan Alasan Mix & Match</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Dilengkapi penjelasan ilmiah/estetika simpel mengapa perpaduan warna dan pakaian tersebut cocok untuk kamu gunakan.
+                    </p>
+                </div>
 
-        <br>
+                <!-- Fitur 5 -->
+                <div class="p-8 rounded-2xl bg-[#131C2E] border border-slate-800 hover:border-cyan-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl mb-6">
+                        🔄
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Eksplorasi Tanpa Batas</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Bosan dengan hasil pertama? Cukup klik tombol acak/coba lagi untuk menemukan variasi style menarik lainnya.
+                    </p>
+                </div>
 
-        <button>
-            Dapatkan Rekomendasi
-        </button>
-
+                <!-- Fitur 6 -->
+                <div class="p-8 rounded-2xl bg-[#131C2E] border border-slate-800 hover:border-cyan-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl mb-6">
+                        💾
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Simpan Favoritmu</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Suka dengan kombinasi rekomendasinya? Kamu bisa menyimpan hasilnya ke memori lokal browser kapan saja.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- TRY NOW SECTION (HANYA MENGHAPUS GENDER SELECTOR) -->
+    <section id="cerita" class="py-16 bg-[#111827]">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="mb-8">
+                <span class="text-4xl">💙</span>
+                <h2 class="text-3xl font-bold text-white mt-4">Ready to Color Your Day?</h2>
+                <p class="mt-2 text-slate-400">Ceritakan aktivitas, cuaca, atau mood kamu hari ini.</p>
+            </div>
 
-    <footer>
-        <p>ColorOfDay — Your Mood. Your Color. Your Day.</p>
+            <!-- TEXTAREA CERITA -->
+            <textarea id="story" rows="4" maxlength="500" oninput="updateCounter()" placeholder="Contoh: Hari ini cuaca dingin hujan mendung, tapi aku ada rapat skripsi penting dan agak pusing..." class="w-full p-5 rounded-2xl border border-slate-700 bg-[#1A2333] text-white placeholder-slate-500 outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition resize-none"></textarea>
+
+            <div class="text-right text-sm text-slate-500 mt-2">
+                <span id="counter">0</span>/500
+            </div>
+
+            <button onclick="getRecommendation()" class="mt-4 w-full md:w-auto px-8 py-3 rounded-full bg-cyan-500 text-white font-bold shadow-lg shadow-cyan-500/20 hover:bg-cyan-600 transition">
+                ✨ Dapatkan Rekomendasi Style
+            </button>
+
+            <!-- RESULT DISPLAY -->
+            <div id="result" class="hidden mt-10 bg-[#1A2333] rounded-2xl p-8 text-left border border-slate-700/60 shadow-2xl">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-700">
+                    <div>
+                        <p class="text-xs text-cyan-400 font-bold uppercase tracking-wider">YOUR DAILY RECOMMENDATION</p>
+                        <h3 id="resultTitle" class="text-2xl font-extrabold text-white mt-1"></h3>
+                    </div>
+                    <!-- Lingkaran Warna Harmonis -->
+                    <div class="flex items-center gap-2">
+                        <div id="colorCircleTop" class="w-10 h-10 rounded-full shadow-md border border-slate-600" title="Warna Atasan"></div>
+                        <div id="colorCircleBottom" class="w-10 h-10 rounded-full shadow-md border border-slate-600" title="Warna Bawahan"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Atasan -->
+                    <div class="flex items-start gap-4 p-4 rounded-xl bg-[#131C2E]">
+                        <span class="text-2xl">👕</span>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase">Atasan / Baju</p>
+                            <p id="resultTop" class="font-semibold text-white mt-0.5"></p>
+                        </div>
+                    </div>
+
+                    <!-- Bawahan -->
+                    <div class="flex items-start gap-4 p-4 rounded-xl bg-[#131C2E]">
+                        <span class="text-2xl">👖</span>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase">Bawahan / Celana / Rok</p>
+                            <p id="resultBottom" class="font-semibold text-white mt-0.5"></p>
+                        </div>
+                    </div>
+
+                    <!-- Aksesoris -->
+                    <div class="flex items-start gap-4 p-4 rounded-xl bg-[#131C2E]">
+                        <span class="text-2xl">💍</span>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase">Aksesoris & Pelengkap</p>
+                            <p id="resultAcc" class="font-semibold text-white mt-0.5"></p>
+                        </div>
+                    </div>
+
+                    <!-- Alasan / Penjelasan Harmoni -->
+                    <div class="p-4 rounded-xl bg-cyan-950/40 border border-cyan-800/50">
+                        <p class="text-xs font-bold text-cyan-400 uppercase flex items-center gap-1">
+                            💡 Kenapa Kombinasi Ini Harmonis & Cocok?
+                        </p>
+                        <p id="resultExplanation" class="text-sm text-slate-300 mt-1 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3 mt-8">
+                    <button onclick="getRecommendation()" class="px-6 py-2.5 rounded-full bg-cyan-500 text-white font-semibold hover:bg-cyan-600 transition shadow-md">
+                        🔄 Coba Style Lain
+                    </button>
+                    <button onclick="saveRecommendation()" class="px-6 py-2.5 rounded-full border border-cyan-500 text-cyan-400 font-semibold hover:bg-cyan-500/10 transition">
+                        💾 Simpan
+                    </button>
+                </div>
+
+                <p id="savedMessage" class="hidden mt-4 text-emerald-400 font-semibold text-sm">
+                    ✓ Rekomendasi berhasil disimpan!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#0B0F17] text-white text-center py-8 border-t border-slate-800">
+        <h3 class="text-xl font-bold text-cyan-400">ColorOfDay</h3>
+        <p class="mt-2 text-slate-400 text-sm">Your Mood. Your Color. Your Day.</p>
+        <p class="mt-4 text-xs text-slate-600">© 2026 ColorOfDay</p>
     </footer>
 
+    <script src="./src/js/script.js"></script>
 </body>
 </html>
