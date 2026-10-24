@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Neutral Layer Set",
+    "category": "Casual",
+    "mood": "Professional",
+    "colors": ["Cream", "Denim Blue"],
+    "description": "Pilihan santai namun tetap rapi untuk aktivitas kerja dan presentasi.",
+    "style": "Minimal Classic"
+  },
+  {
+    "id": 2,
+    "name": "Soft Weekend Look",
+    "category": "Streetwear",
+    "mood": "Cozy",
+    "colors": ["Beige", "Charcoal"],
+    "description": "Tampilan hangat dan nyaman untuk hari hujan sambil tetap terlihat trendy.",
+    "style": "Relaxed Urban"
+  },
+  {
+    "id": 3,
+    "name": "City Energy Mix",
+    "category": "Trend",
+    "mood": "Trendy",
+    "colors": ["Terracotta", "Off White"],
+    "description": "Perpaduan warna yang memberi kesan berani, modern, dan penuh karakter.",
+    "style": "Contemporary Edge"
+  },
+  {
+    "id": 4,
+    "name": "Healing Calm Fit",
+    "category": "Everyday",
+    "mood": "Healing",
+    "colors": ["Dusty Rose", "Light Grey"],
+    "description": "Nuansa lembut yang menenangkan untuk hari penuh stres atau capek.",
+    "style": "Soft Comfort"
+  },
+  {
+    "id": 5,
+    "name": "Sunlit Refresh",
+    "category": "Summer",
+    "mood": "Summer",
+    "colors": ["Sky Blue", "White"],
+    "description": "Tampilan cerah dan ringan cocok untuk cuaca panas atau hari libur outdoor.",
+    "style": "Fresh Summer"
+  },
+  {
+    "id": 6,
+    "name": "Earthy Confidence",
+    "category": "Smart Casual",
+    "mood": "Professional",
+    "colors": ["Olive Green", "Warm Cream"],
+    "description": "Kombinasi alamiah yang memberikan kesan tenang, kuat, dan percaya diri.",
+    "style": "Earth Tone Smart"
+  },
+  {
+    "id": 7,
+    "name": "Rainy Day Mood",
+    "category": "Casual",
+    "mood": "Cozy",
+    "colors": ["Mustard", "Navy"],
+    "description": "Pilihan hangat dengan aksen warna yang terasa hidup di hari mendung.",
+    "style": "Warm Layered"
+  },
+  {
+    "id": 8,
+    "name": "Soft Glow Vibe",
+    "category": "Chic",
+    "mood": "Trendy",
+    "colors": ["Lilac", "Cloud White"],
+    "description": "Tampil santai dengan sentuhan pastel yang stylish dan tidak berlebihan.",
+    "style": "Pastel Chic"
+  }
+]

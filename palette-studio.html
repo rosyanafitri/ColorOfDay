@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111827">
+    <title>Studio Warna — ColorOfDay</title>
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-[#111827] font-sans text-slate-100">
+    <header class="sticky top-0 z-50 border-b border-slate-800 bg-[#111827]/90 backdrop-blur-md">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+            <a href="./index.html" class="text-xl font-bold text-cyan-400 md:text-2xl">Color<span class="text-white">OfDay</span></a>
+            <nav class="flex items-center gap-2 text-xs md:gap-6 md:text-base">
+                <a href="./index.html" class="font-medium transition hover:text-cyan-400">Beranda</a>
+                <a href="./index.html#cerita" class="hidden font-medium transition hover:text-cyan-400 md:inline">Rekomendasi</a>
+                <a href="./palette-studio.html" aria-current="page" class="font-semibold text-cyan-300"><span class="sm:hidden">Studio</span><span class="hidden sm:inline">Studio Warna</span></a>
+                <a href="./favorites.html" class="font-medium transition hover:text-cyan-400">Favorit <span data-favorite-count class="text-cyan-400"></span></a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 py-14 md:py-20">
+        <div class="mx-auto max-w-3xl text-center">
+            <span class="inline-flex rounded-full border border-cyan-700/60 bg-cyan-950/50 px-4 py-2 text-sm font-semibold text-cyan-300">COLOR PLAYGROUND</span>
+            <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-white md:text-6xl">Warna yang pas, <span class="text-cyan-400">mood yang naik.</span></h1>
+            <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-400">Pilih suasana gayamu dan temukan palet warna baru. Klik chip untuk menyalin kode warna.</p>
+        </div>
+
+        <section class="mx-auto mt-12 max-w-4xl rounded-3xl border border-slate-700 bg-[#131C2E] p-6 shadow-2xl shadow-cyan-950/20 md:p-10">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-end">
+                <div class="flex-1">
+                    <label for="paletteMood" class="mb-2 block text-sm font-semibold text-slate-300">Pilih mood atau acara</label>
+                    <select id="paletteMood" class="w-full rounded-xl border border-slate-600 bg-[#0F172A] px-4 py-3 text-white outline-none transition focus:border-cyan-400">
+                        <option value="all">Beri kejutan ✨</option>
+                        <option value="Calm">Tenang & nyaman</option>
+                        <option value="Bold">Berani & percaya diri</option>
+                        <option value="Fresh">Segar & ceria</option>
+                        <option value="Elegant">Elegan & rapi</option>
+                        <option value="Romantic">Lembut & romantis</option>
+                    </select>
+                </div>
+                <button id="shufflePalette" type="button" class="rounded-xl bg-cyan-500 px-6 py-3 font-bold text-white transition hover:bg-cyan-600">Acak palet ✨</button>
+            </div>
+
+            <div id="paletteResult" aria-live="polite" class="mt-8"></div>
+            <p id="paletteMessage" role="status" class="mt-4 min-h-6 text-sm text-emerald-300"></p>
+        </section>
+
+        <div class="mt-10 text-center">
+            <a href="./index.html#cerita" class="font-semibold text-cyan-300 transition hover:text-cyan-200">Sudah punya palet? Buat rekomendasi outfit →</a>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-800 bg-[#0B0F17] px-6 py-8 text-center">
+        <p class="font-bold text-cyan-400">ColorOfDay</p>
+        <p class="mt-2 text-sm text-slate-500">Mix warna, ikuti mood, jadi diri sendiri.</p>
+    </footer>
+    <script src="./src/js/features.js"></script>
+</body>
+</html>
