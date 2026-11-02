@@ -154,6 +154,8 @@ function getRecommendation() {
         bottom: `${selectedBottom} — (Warna: ${colorPair.bottom.name})`,
         accessories: selectedAcc,
         explanation: fullExplanation,
+        topColorName: colorPair.top.name,
+        bottomColorName: colorPair.bottom.name,
         topColorClass: colorPair.top.class,
         bottomColorClass: colorPair.bottom.class
     };
@@ -173,10 +175,42 @@ function getRecommendation() {
     resultBox.classList.remove("hidden");
     document.getElementById("savedMessage").classList.add("hidden");
 
+    saveStoryHistory(document.getElementById("story").value.trim());
+
     resultBox.scrollIntoView({
         behavior: "smooth",
         block: "center"
     });
+}
+
+async function saveStoryHistory(story) {
+    const message = document.getElementById("historyMessage");
+    message.textContent = "Menyimpan cerita ke riwayat...";
+    message.className = "mt-4 text-sm text-slate-400";
+
+    const formData = new URLSearchParams();
+    formData.append("judul_cerita", currentRecommendation.title);
+    formData.append("isi_cerita", story);
+    formData.append("rekomendasi_warna[]", currentRecommendation.topColorName);
+    formData.append("rekomendasi_warna[]", currentRecommendation.bottomColorName);
+
+    try {
+        const response = await fetch("./cerita.php", {
+            method: "POST",
+            headers: { "X-Requested-With": "XMLHttpRequest" },
+            body: formData
+        });
+        const result = await response.json();
+        if (!response.ok || !result.success) {
+            throw new Error(result.message || "Cerita tidak dapat disimpan.");
+        }
+
+        message.textContent = result.message;
+        message.className = "mt-4 text-sm text-emerald-400";
+    } catch (error) {
+        message.textContent = `Gagal menyimpan cerita: ${error.message}`;
+        message.className = "mt-4 text-sm text-rose-400";
+    }
 }
 
 function saveRecommendation() {
