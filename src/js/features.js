@@ -149,7 +149,7 @@ function renderFavorites() {
                 <h2 class="mt-5 text-xl font-bold text-white">Koleksimu masih kosong</h2>
                 <p class="mx-auto mt-2 max-w-md text-slate-400">Simpan rekomendasi outfit atau palet warna yang kamu suka, lalu semuanya akan muncul di sini.</p>
                 <a href="./index.html#cerita" class="mt-6 inline-block rounded-full bg-cyan-500 px-6 py-3 font-bold text-white transition hover:bg-cyan-600">Buat rekomendasi outfit →</a>
-                <a href="./palette-studio.html" class="mt-3 inline-block rounded-full border border-slate-600 px-6 py-3 font-bold text-slate-200 transition hover:border-cyan-400 hover:text-cyan-300 sm:ml-3">Jelajahi warna</a>
+                <a href="./palette-studio.php" class="mt-3 inline-block rounded-full border border-slate-600 px-6 py-3 font-bold text-slate-200 transition hover:border-cyan-400 hover:text-cyan-300 sm:ml-3">Jelajahi warna</a>
             </div>
         `;
         return;
