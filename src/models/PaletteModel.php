@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'Palette.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'Palette.php';
 
-class PaletteManager
+class PaletteModel
 {
     private string $filePath;
 
@@ -15,41 +15,40 @@ class PaletteManager
     }
 
     /**
-     * Memvalidasi lalu menyimpan satu palette secara aman ke file JSON.
-     *
-     * @param string[] $arrayWarna
+     * @param string[] $colors
      */
-    public function tambahPalette(string $nama, string $kategori, array $arrayWarna): void
+    public function save(string $name, string $category, array $colors): void
     {
-        $nama = trim($nama);
-        $kategori = trim($kategori);
-        $arrayWarna = array_values($arrayWarna);
+        $name = trim($name);
+        $category = trim($category);
+        $colors = array_values($colors);
 
-        if ($nama === '' || $kategori === '') {
+        if ($name === '' || $category === '') {
             throw new InvalidArgumentException('Nama palette dan kategori wajib diisi.');
         }
-        $nameLength = preg_match_all('/./us', $nama);
-        $categoryLength = preg_match_all('/./us', $kategori);
+
+        $nameLength = preg_match_all('/./us', $name);
+        $categoryLength = preg_match_all('/./us', $category);
         if (
             $nameLength === false || $nameLength > 80
             || $categoryLength === false || $categoryLength > 40
         ) {
             throw new InvalidArgumentException('Nama palette maksimal 80 karakter dan kategori maksimal 40 karakter.');
         }
-        if (count($arrayWarna) < 3 || count($arrayWarna) > 4) {
+        if (count($colors) < 3 || count($colors) > 4) {
             throw new InvalidArgumentException('Palette harus memiliki 3 atau 4 warna.');
         }
-        foreach ($arrayWarna as $warna) {
-            if (!is_string($warna) || preg_match('/^#[0-9A-Fa-f]{6}$/D', $warna) !== 1) {
+        foreach ($colors as $color) {
+            if (!is_string($color) || preg_match('/^#[0-9A-Fa-f]{6}$/D', $color) !== 1) {
                 throw new InvalidArgumentException('Setiap warna harus berupa kode HEX, misalnya #22D3EE.');
             }
         }
 
         $palette = new Palette(
             bin2hex(random_bytes(8)),
-            $nama,
-            $kategori,
-            array_map('strtoupper', $arrayWarna),
+            $name,
+            $category,
+            array_map('strtoupper', $colors),
             date(DATE_ATOM)
         );
 
@@ -71,7 +70,11 @@ class PaletteManager
 
             $palettes = $this->decodePalettes($contents);
             $palettes[] = $this->paletteToArray($palette);
-            $json = json_encode($palettes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
+            try {
+                $json = json_encode($palettes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
+            } catch (JsonException $exception) {
+                throw new RuntimeException('Data palette tidak dapat dienkode.', 0, $exception);
+            }
 
             rewind($handle);
             if (!ftruncate($handle, 0) || fwrite($handle, $json) !== strlen($json) || !fflush($handle)) {
@@ -86,7 +89,7 @@ class PaletteManager
     /**
      * @return Palette[]
      */
-    public function ambilSemuaPalette(): array
+    public function getAll(): array
     {
         $handle = fopen($this->filePath, 'rb');
         if ($handle === false) {
@@ -104,7 +107,7 @@ class PaletteManager
             }
 
             $palettes = array_map(
-                fn (array $data): Palette => new Palette(
+                static fn (array $data): Palette => new Palette(
                     $data['id'],
                     $data['namaPalette'],
                     $data['kategori'],
@@ -158,8 +161,8 @@ class PaletteManager
             ) {
                 throw new RuntimeException('Format palette di dalam penyimpanan tidak valid.');
             }
-            foreach ($data['arrayWarna'] as $warna) {
-                if (!is_string($warna) || preg_match('/^#[0-9A-F]{6}$/D', $warna) !== 1) {
+            foreach ($data['arrayWarna'] as $color) {
+                if (!is_string($color) || preg_match('/^#[0-9A-F]{6}$/D', $color) !== 1) {
                     throw new RuntimeException('Format kode warna di dalam penyimpanan tidak valid.');
                 }
             }
