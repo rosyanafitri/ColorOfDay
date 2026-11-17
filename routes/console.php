@@ -1,4 +1,4 @@
-<?php
+git push -u origin maingit push -u origin maingit push -u origin main<?php
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
